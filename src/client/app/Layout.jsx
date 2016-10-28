@@ -1,34 +1,47 @@
 import React, { Component } from "react";
-import AjaxAdapter        from '../helpers/ajaxAdapter.js'
-
+import AjaxAdapter        from '../helpers/ajaxAdapter.js';
+import Search from './Search.jsx';
+import Results from './Results.jsx';
 
 const ajax = new AjaxAdapter(fetch);
 
 export default class Layout extends Component {
-    constructor() {
-        super();
-        this.state = {
-            searched: false,
-            results: []
-        }
+  constructor() {
+    super();
+    this.state = {
+      searched: false,
+      results: []
     }
-    handleSubmitSearch(currentSearch) {
+  }
+  handleSubmitSearch(currentSearch) {
     ajax.fullPull(currentSearch).then( data => {
-      console.log(data)
-      this.handleChange(currentSearch)
       this.setState({
-        results: data,
-        searched: true
+        searched: true,
+        results: data
       })
     })
+
   }
 
-    render() {
-
-        return (
-            <div>
-                <h2>Hello World</h2>
-            </div>
-            )
+  render() {
+    if(this.state.searched) {
+      return (
+        <div>
+          <h2>Show Data</h2>
+          <Search onSubmitSearch={this.handleSubmitSearch.bind(this)}
+                 results={this.state.results} />
+          <Results results={this.state.results} />
+        </div>
+      )
+    } else {
+      return (
+        <div>
+        <h2>search for a show</h2>
+         <Search onSubmitSearch={this.handleSubmitSearch.bind(this)}
+                 results={this.state.results} />
+        </div>
+      )
     }
+  }
 }
+
