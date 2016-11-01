@@ -1,3 +1,11 @@
+.jumbotron a {
+
+
+}
+html {
+  background-color: #F2FBE0;
+  color: #F3F6FF;
+}
 .results {
 float: right;
 }
@@ -5,18 +13,33 @@ float: right;
 .manhattan {
   background-color: #F3F6FF;
 }
-
+.card-head {
+  background-color: #605B56;
+  border-radius: 15px;
+  color: #F2FBE0;
+}
+.info {
+  float: right;
+  background-color: #605B56;
+  color: #F2FBE0;
+}
 .brooklyn {
   background-color: #DAFEB7;
 
 }
+.venue a {
+  margin-top: 20px;
+  font-size: 18px;
+}
 
 .returns {
   background-color: #F0CB9F;
-  border-radius: 20px;
+  border-radius: 15px;
   margin-bottom: 10px;
 }
 
 .img-thumbnail {
+  float: left;
   margin-top:10px;
+  margin-bottom:10px;
 }

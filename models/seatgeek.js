@@ -1,4 +1,4 @@
-/*const request = require('request');
+const request = require('request');
 
 module.exports = {
 
@@ -9,7 +9,6 @@ module.exports = {
       qs: {
         "client_id" : process.env['SG_KEY'],
         "venue.city": "new york",
-        "datetime_utc": "2016-11-01",
         "q": currentSearch
       },
       method:'get',
@@ -23,4 +22,4 @@ module.exports = {
   }
 }
 
-*/
+

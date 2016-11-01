@@ -55,27 +55,30 @@ export default class Layout extends React.Component {
   render() {
     if (this.state.searched) {
       return(
-        <div className="jumbotron col-sm-12 text-center">
-          <a onClick={this.handleSearchToggle.bind(this)}>
-            <h1>Show Finder NYC</h1>
-          </a>
-          <div className="col-sm-6 manhattan">
-            <div className="col-sm-12 text center">
-              <h2>Manhattan</h2>
+      <div className="jumbotron col-sm-12 text-center">
+        <a onClick={this.handleSearchToggle.bind(this)}>
+          <h1>Show Finder NYC</h1>
+          <SearchDos
+            onUpdateSearch={this.handleUpdateSearch.bind(this)}
+            onSubmitSearch={this.handleSubmitSearch.bind(this)}
+            query={this.state.query}/>
+        </a>
+        <div className="col-sm-6 manhattan">
+          <div className="col-sm-12 text center">
+            <h2>Manhattan</h2>
             <ResultsDos
-            events={this.state.manresults}
-            />
-            </div>
-          </div>
-          <div className="col-sm-6 brooklyn">
-            <div className="col-sm-12 text center">
-              <h2>Brooklyn</h2>
-            <ResultsDos
-            events={this.state.bkresults}
-            />
-            </div>
+              events={this.state.manresults} />
           </div>
         </div>
+        <div className="col-sm-6 brooklyn">
+          <div className="col-sm-12 text center">
+            <h2>Brooklyn</h2>
+            <ResultsDos
+              events={this.state.bkresults}
+            />
+          </div>
+        </div>
+      </div>
         )
     } else {
     return(

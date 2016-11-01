@@ -10,16 +10,16 @@ const ResultsDos = props=>
             className="img-thumbnail"
             src={event.performers[0].image} />
             <p>{event.title}</p>
+            <p>{event.stats.average_price}</p>
             <p>{event.venue.name}</p>
             <p>{event.datetime_local}</p>
             <p><a href={event.url} target="_blank" >Check Tickets</a></p>
             <p>{event.venue.location.lat}</p>
             <p>{event.venue.location.lon}</p>
           </section>
-
           </div>
         )
-      })
+        })
       }
     </div>
 

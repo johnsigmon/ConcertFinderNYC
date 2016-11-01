@@ -14,24 +14,40 @@ const ResultsDos = props=>
           let hour = date.getHours();
           let minutes = date.getMinutes();
 
+          let backgroundDivStyle = {
+                "background" : "url("+event.performers[0].image+")",
+                "backgroundSize": "cover"
+          }
+
         return (
-          <div key={i} className="returns">
-          <Grid>
-            <Image
-            className="img-thumbnail"
-            shape="rounded"
-            src={event.performers[0].image}
-            responsive />
-            <h3>{event.title}</h3>
-            <p>@ {event.venue.name}</p>
-            <p>{realmonth}/{day}</p>
-            <p>{hour}: {minutes} PM</p>
-            <p>{event.datetime_local}</p>
-            <p><a href={event.url} target="_blank" >Check Tickets</a></p>
-            <p>{event.venue.location.lat}</p>
-            <p>{event.venue.location.lon}</p>
-            <p>{event.stats.listing_count}</p>
-          </Grid>
+          <div key={i} className="returns" style={backgroundDivStyle} >
+            <Grid>
+            <Row className="card-head">
+              <Col xs={6} >
+                <h3>{event.title}</h3>
+              </Col>
+              <Col xs={6} >
+                <h3 className="venue"><span>{realmonth}/{day} </span><a href={event.venue.url} target="_blank" >@ {event.venue.name}</a></h3>
+              </Col>
+            </Row>
+            <Row>
+              <Col xs={6} >
+                <Image
+                className="img-thumbnail"
+                shape="rounded"
+                src={event.performers[0].image}
+                responsive />
+              </Col>
+              <Col xs={6} >
+                <div className="info">
+                <p className="cash"> Avg. Ticket : <strong>${event.stats.average_price}</strong></p>
+                <p className="cash"> Lowest Ticket : <strong>${event.stats.lowest_price}</strong></p>
+                <p className="cash"> Tickets Listed : <strong>{event.stats.listing_count}</strong></p>
+                <p><a href={event.url} target="_blank" >Check Tickets</a></p>
+                </div>
+              </Col>
+              </Row>
+            </Grid>
 
           </div>
         )}
