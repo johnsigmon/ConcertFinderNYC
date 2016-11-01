@@ -20,7 +20,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 
 // bring in the  routes
-app.use( '/api',            require('./routes/seatgeek'));
+/*app.use( '/',            require('./routes/seatgeek'));*/
 /*app.use( '/userapi',        require('./routes/userApi') );
 app.use( '/userapi/users',  require('./routes/users') );
 app.use( '/dropd',          require('./routes/allcountries'));

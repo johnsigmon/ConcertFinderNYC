@@ -29,7 +29,7 @@ module.exports = {
     }),*/
     new webpack.optimize.CommonsChunkPlugin('/js/common.js'),
     new HtmlWebpackPlugin({
-      title: 'Curious Canuck App',
+      title: 'Show Finder NYC',
       xhtml: true,
       inject: false,
       template: require('html-webpack-template'),
