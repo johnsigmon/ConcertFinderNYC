@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import querySeatGeek from '../helpers/ajaxAdapter.js';
 import bkSeatGeek from '../helpers/bkAdapter.js';
+/*import * as ajax from './helpers/ajaxAdapterDos.js';*/
 import SearchDos from './SearchDos.jsx';
 import ResultsDos from './ResultsDos.jsx';
 import MapContainer from './MapContainer.jsx';
