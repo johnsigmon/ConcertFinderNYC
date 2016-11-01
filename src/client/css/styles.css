@@ -1,3 +1,22 @@
 .results {
 float: right;
 }
+
+.manhattan {
+  background-color: #F3F6FF;
+}
+
+.brooklyn {
+  background-color: #DAFEB7;
+
+}
+
+.returns {
+  background-color: #F0CB9F;
+  border-radius: 20px;
+  margin-bottom: 10px;
+}
+
+.img-thumbnail {
+  margin-top:10px;
+}

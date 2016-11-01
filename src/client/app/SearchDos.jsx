@@ -9,7 +9,7 @@ const SearchDos = props =>
           onChange={props.onUpdateSearch}
           value={props.query}
           type="text"
-          placeholder="Enter a movie title..."
+          placeholder="Enter your favorite band or sports team..."
           className="form-control" />
         </div>
         <div className="form-group col-sm-4 col-sm-offset-4">

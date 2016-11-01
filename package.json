@@ -30,7 +30,10 @@
     "morgan": "^1.7.0",
     "path": "^0.12.7",
     "pg-promise": "^5.2.4",
-    "request": "^2.74.0"
+    "react-bootstrap": "^0.30.6",
+    "react-google-maps": "^4.11.0",
+    "request": "^2.74.0",
+    "superagent": "^2.3.0"
   },
   "devDependencies": {
     "babel": "^6.5.2",
