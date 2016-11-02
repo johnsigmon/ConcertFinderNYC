@@ -3,6 +3,7 @@ const request = require('request');
 module.exports = {
 
   getData(req,res,next){
+    console.log('GET DATA MODEL HIT')
    let currentSearch = req.params.search
     request({
       url:'https://api.seatgeek.com/2/events?',
