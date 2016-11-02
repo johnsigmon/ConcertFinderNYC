@@ -17,7 +17,7 @@ app.use( logger( DEV ? 'dev' : 'common') );
 
 // we're only going to accept json
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.urlencoded({extended: true}));
 
 // bring in the  routes
 app.use( '/api', require('./routes/seatgeek'));

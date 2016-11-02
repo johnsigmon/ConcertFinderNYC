@@ -1,13 +1,12 @@
 
-export default class AjaxAdapter{
+export default class AjaxAdapterDos{
 
   constructor(fetch){
     if(!fetch) throw "We need the Fetch library to make this work, bru.";
   }
 
-  fullPull(currentSearch) {
-    return fetch(`/api/${currentSearch}`).then( r => r.json() );
+  fullPull(searchQuery) {
+   console.log('FULLPULL')
+    return fetch(`/api/${searchQuery}`).then( r => r.json());
   }
-
-
 }

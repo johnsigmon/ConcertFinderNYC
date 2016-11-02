@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 import querySeatGeek from '../helpers/ajaxAdapter.js';
 import bkSeatGeek from '../helpers/bkAdapter.js';
-/*import * as ajax from './helpers/ajaxAdapterDos.js';*/
+import ajaxAdapterDos from '../helpers/ajaxAdapterDos.js';
 import SearchDos from './SearchDos.jsx';
 import ResultsDos from './ResultsDos.jsx';
 import MapContainer from './MapContainer.jsx';
 
+const ajax = new ajaxAdapterDos(fetch);
 
 export default class Layout extends React.Component {
   constructor() {
@@ -25,31 +26,25 @@ export default class Layout extends React.Component {
     })
   }
 
-  handleSubmitSearch(event) {
-    event.preventDefault();
-    querySeatGeek(this.state.query).then( events => {
+  handleSubmitSearch(searchQuery) {
+
+    ajax.fullPull(searchQuery).then( data => {
+      console.log(data.events);
       this.setState({
-        manresults: events.events,
+        manresults: data.events,
         searched: true
       })
 
-    });
-    bkSeatGeek(this.state.query).then( bkevents => {
-      this.setState({
-        bkresults: bkevents.events,
-        query: ''
+
     })
-      console.log(this.state);
-  })
-   /* this.setState({searched: true})*/
+
   }
 
   handleSearchToggle(event) {
     this.setState({
       manresults: [],
-      bkresults: [],
-      query: '',
-      searched: false
+      bkresults: []
+
     });
   }
 
