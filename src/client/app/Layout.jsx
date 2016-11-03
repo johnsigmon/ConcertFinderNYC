@@ -1,12 +1,11 @@
 import React, { Component } from "react";
-import querySeatGeek from '../helpers/ajaxAdapter.js';
 import bkSeatGeek from '../helpers/bkAdapter.js';
-import ajaxAdapterDos from '../helpers/ajaxAdapterDos.js';
-import SearchDos from './SearchDos.jsx';
-import ResultsDos from './ResultsDos.jsx';
-import MapContainer from './MapContainer.jsx';
+import ajaxAdapter from '../helpers/ajaxAdapter.js';
+import Search from './Search.jsx';
+import Results from './Results.jsx';
 
-const ajax = new ajaxAdapterDos(fetch);
+
+const ajax = new ajaxAdapter(fetch);
 
 export default class Layout extends React.Component {
   constructor() {
@@ -29,24 +28,18 @@ export default class Layout extends React.Component {
   handleSubmitSearch(searchQuery) {
 
     ajax.fullPull(searchQuery).then( data => {
-      console.log(data);
-
       this.setState({
         manresults: data.nyc.events,
         bkresults: data.bk.events,
         searched: true
       })
-
-
     })
-
   }
 
   handleSearchToggle(event) {
     this.setState({
       manresults: [],
       bkresults: []
-
     });
   }
 
@@ -56,44 +49,40 @@ export default class Layout extends React.Component {
       <div className="jumbotron col-sm-12 text-center">
         <a onClick={this.handleSearchToggle.bind(this)}>
           <h1>Show Finder NYC</h1>
-          <SearchDos
-            onUpdateSearch={this.handleUpdateSearch.bind(this)}
-            onSubmitSearch={this.handleSubmitSearch.bind(this)}
-            query={this.state.query}/>
         </a>
+          <Search
+            onSubmitSearch={this.handleSubmitSearch.bind(this)}
+            query={this.state.query} />
         <div className="col-sm-6 manhattan">
           <div className="col-sm-12 text center">
             <h2>Manhattan</h2>
-            <ResultsDos
+            <Results
               events={this.state.manresults} />
           </div>
         </div>
         <div className="col-sm-6 brooklyn">
           <div className="col-sm-12 text center">
             <h2>Brooklyn</h2>
-            <ResultsDos
+            <Results
               events={this.state.bkresults}
             />
           </div>
         </div>
       </div>
-        )
+      )
+
     } else {
-    return(
-        <div className="jumbotron col-sm-12 text-center">
-        <a>
-            <h1>Show Finder NYC</h1>
-        </a>
-         <SearchDos
-            onUpdateSearch={this.handleUpdateSearch.bind(this)}
-            onSubmitSearch={this.handleSubmitSearch.bind(this)}
-            query={this.state.query}/>
-            <div>
 
-            </div>
-
-        </div>
-        )
+      return(
+          <div className="jumbotron col-sm-12 text-center">
+            <a>
+              <h1>Show Finder NYC</h1>
+            </a>
+            <Search
+              onSubmitSearch={this.handleSubmitSearch.bind(this)}
+              query={this.state.query}/>
+          </div>
+      )
     }
   }
 }

@@ -10,24 +10,15 @@ const path        = require('path');
 const app         = express();
 const PORT        = process.argv[2] || process.env.PORT || 3000;
 
-app.set('superSecret', 'my super secret word')
+app.set('superSecret', 'my super secret word');
 
-// set up some logging
 app.use( logger( DEV ? 'dev' : 'common') );
 
-// we're only going to accept json
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
-// bring in the  routes
 app.use( '/api', require('./routes/seatgeek'));
-/*app.use( '/userapi',        require('./routes/userApi') );
-app.use( '/userapi/users',  require('./routes/users') );
-app.use( '/dropd',          require('./routes/allcountries'));
-app.use( '/comments',       require('./routes/comments'));*/
 
-app.use( express.static(path.join(__dirname, 'dist')))
+app.use( express.static(path.join(__dirname, 'dist')));
 
-
-// Let's go!
-app.listen(PORT , ()=> console.log(`server here! listening on`, PORT ) )
+app.listen(PORT , ()=> console.log(`server here! listening on`, PORT));

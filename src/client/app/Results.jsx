@@ -1,27 +1,25 @@
 import React from 'react';
 import { Grid, Col, Row, Image } from 'react-bootstrap'
 
-const ResultsDos = props=>
-    <div>
-      {props.events.map((event,i) => {
-        if(event.performers[0].image) {
-          let date = new Date(event.datetime_local);
+const Results = props=>
+  <div>
+    {props.events.map((event,i) => {
+      if(event.performers[0].image) {
+       let date = new Date(event.datetime_local)
+       let month = date.getMonth();
+       let realmonth = parseInt(month) + 1
+       console.log(month);
+       let day = date.getDate();
+       let hour = date.getHours();
+       let minutes = date.getMinutes();
+       let backgroundDivStyle = {
+              "background" : "url("+event.performers[0].image+")",
+              "backgroundSize": "cover"
+        }
 
-          let month = date.getMonth();
-          let realmonth = parseInt(month) + 1
-          console.log(month);
-          let day = date.getDate();
-          let hour = date.getHours();
-          let minutes = date.getMinutes();
-
-          let backgroundDivStyle = {
-                "background" : "url("+event.performers[0].image+")",
-                "backgroundSize": "cover"
-          }
-
-        return (
-          <div key={i} className="returns" style={backgroundDivStyle} >
-            <Grid>
+      return (
+        <div key={i} className="returns" style={backgroundDivStyle} >
+          <Grid>
             <Row className="card-head">
               <Col xs={6} >
                 <h3>{event.title}</h3>
@@ -33,10 +31,10 @@ const ResultsDos = props=>
             <Row>
               <Col xs={6} >
                 <Image
-                className="img-thumbnail"
-                shape="rounded"
-                src={event.performers[0].image}
-                responsive />
+                  className="img-thumbnail"
+                  shape="rounded"
+                  src={event.performers[0].image}
+                  responsive />
               </Col>
               <Col xs={6} >
                 <div className="info">
@@ -46,13 +44,11 @@ const ResultsDos = props=>
                 <p><a href={event.url} target="_blank" >Check Tickets</a></p>
                 </div>
               </Col>
-              </Row>
-            </Grid>
+            </Row>
+          </Grid>
+        </div>
+      )}
+    })}
+  </div>
 
-          </div>
-        )}
-      })
-      }
-    </div>
-
-export default ResultsDos;
+export default Results;

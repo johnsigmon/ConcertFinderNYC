@@ -6,12 +6,11 @@ import superagent           from 'superagent';
 
 
 export default class MapContainer extends Component {
-
     constructor(){
-        super()
-        this.state = {
-          venues: []
-        }
+      super()
+      this.state = {
+        venues: []
+      }
     }
     componentDidMount(){
       console.log('componentDidMount');
@@ -21,31 +20,28 @@ export default class MapContainer extends Component {
         .query()
         .set('Accept', 'text/json')
         .end((error, response) => {
-
           const venues = response.body.response.venues;
           console.log(JSON.stringify(venues))
           this.setState({
             venues:venues
           })
         })
-
-
     }
     render(){
-        const location = {
+      const location = {
           lat: 40.7575285,
           lng: -73.9884469
         }
 
-        return (
-            <div>
-              This is the React APP!
-              <div style={{width:300, height:600, background:'red'}}>
-              <Map center={location} markers={this.state.venues} />
-              </div>
-              <Places venues={this.state.venues}/>
-            </div>
-        )
+      return (
+        <div>
+          This is the React APP!
+          <div style={{width:300, height:600, background:'red'}}>
+            <Map center={location} markers={this.state.venues} />
+          </div>
+          <Places venues={this.state.venues}/>
+          </div>
+      )
     }
 }
 
