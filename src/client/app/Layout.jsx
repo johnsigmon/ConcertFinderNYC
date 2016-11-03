@@ -29,9 +29,11 @@ export default class Layout extends React.Component {
   handleSubmitSearch(searchQuery) {
 
     ajax.fullPull(searchQuery).then( data => {
-      console.log(data.events);
+      console.log(data);
+
       this.setState({
-        manresults: data.events,
+        manresults: data.nyc.events,
+        bkresults: data.bk.events,
         searched: true
       })
 
