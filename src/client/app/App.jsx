@@ -2,8 +2,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom'
 import Layout from './Layout.jsx'
+import routes from './config/routes.jsx'
 
-export default class App extends React.Component {
+/*export default class App extends React.Component {
 
   render(){
     return(
@@ -13,6 +14,6 @@ export default class App extends React.Component {
     )
   }
 
-}
+}*/
 
-ReactDOM.render(<App/>, document.querySelector('#container'))
+ReactDOM.render(routes, document.querySelector('#container'))

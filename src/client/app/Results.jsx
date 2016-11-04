@@ -8,7 +8,6 @@ const Results = props=>
        let date = new Date(event.datetime_local)
        let month = date.getMonth();
        let realmonth = parseInt(month) + 1
-       console.log(month);
        let day = date.getDate();
        let hour = date.getHours();
        let minutes = date.getMinutes();
@@ -16,6 +15,7 @@ const Results = props=>
               "background" : "url("+event.performers[0].image+")",
               "backgroundSize": "cover"
         }
+       console.log(month);
 
       return (
         <div key={i} className="returns" style={backgroundDivStyle} >
@@ -30,17 +30,13 @@ const Results = props=>
             </Row>
             <Row>
               <Col xs={6} >
-                <Image
-                  className="img-thumbnail"
-                  shape="rounded"
-                  src={event.performers[0].image}
-                  responsive />
+
               </Col>
               <Col xs={6} >
                 <div className="info">
-                <p className="cash"> Avg. Ticket : <strong>${event.stats.average_price}</strong></p>
-                <p className="cash"> Lowest Ticket : <strong>${event.stats.lowest_price}</strong></p>
-                <p className="cash"> Tickets Listed : <strong>{event.stats.listing_count}</strong></p>
+                <p className="cash">Avg. Ticket : <strong>${event.stats.average_price}</strong></p>
+                <p className="cash">Lowest Ticket : <strong>${event.stats.lowest_price}</strong></p>
+                <p className="cash">Tickets Listed : <strong>{event.stats.listing_count}</strong></p>
                 <p><a href={event.url} target="_blank" >Check Tickets</a></p>
                 </div>
               </Col>

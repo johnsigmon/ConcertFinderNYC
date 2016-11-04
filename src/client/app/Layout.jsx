@@ -1,5 +1,4 @@
-import React, { Component } from "react";
-import bkSeatGeek from '../helpers/bkAdapter.js';
+import React, { Component } from 'react';
 import ajaxAdapter from '../helpers/ajaxAdapter.js';
 import Search from './Search.jsx';
 import Results from './Results.jsx';
@@ -53,6 +52,7 @@ export default class Layout extends React.Component {
           <Search
             onSubmitSearch={this.handleSubmitSearch.bind(this)}
             query={this.state.query} />
+            <h4>What's coming soon.</h4>
         <div className="col-sm-6 manhattan">
           <div className="col-sm-12 text center">
             <h2>Manhattan</h2>
