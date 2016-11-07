@@ -14,11 +14,11 @@ function Results (props) {
         : <div className="jumbotron col-sm-12">
           <h1>What's coming up!</h1>
           <Grid>
-            <EventDetailsWrapper>
+            <EventDetailsWrapper header="NYC">
               <EventDetails events={props.results[0].events} />
             </EventDetailsWrapper>
 
-            <EventDetailsWrapper>
+            <EventDetailsWrapper header="BK">
               <EventDetails events={props.results[1].events} />
             </EventDetailsWrapper>
             </Grid>

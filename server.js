@@ -10,6 +10,10 @@ const path        = require('path');
 const app         = express();
 const PORT        = process.argv[2] || process.env.PORT || 3000;
 
+const SG_KEY      = process.env['SG_KEY']
+
+console.log(SG_KEY)
+
 app.set('superSecret', 'my super secret word');
 
 app.use( logger( DEV ? 'dev' : 'common') );

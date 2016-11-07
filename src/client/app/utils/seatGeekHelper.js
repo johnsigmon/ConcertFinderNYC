@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const id = 'NjA2OTc1M3wxNDc3Njc5MDA4';
+const id = "MY KEY";
 const param = "&client_id=" + id;
 
 /*const cities = ['?venue.city=new+york','?venue.city=brooklyn']*/
