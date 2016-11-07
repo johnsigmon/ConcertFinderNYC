@@ -17,7 +17,7 @@ app.use( logger( DEV ? 'dev' : 'common') );
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
-app.use( '/api', require('./routes/seatgeek'));
+/*app.use( '/api', require('./routes/seatgeek'));*/
 
 app.use( express.static(path.join(__dirname, 'dist')));
 

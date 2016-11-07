@@ -1,9 +1,8 @@
 import React from 'react';
 
 function Results (props) {
-  return (
-    <div>Search Results</div>
-    )
-}
-
+  return props.isLoading === true
+        ? <p>LOADING</p>
+        : <p>SHOW RESULTS</p>
+      }
 export default Results;
