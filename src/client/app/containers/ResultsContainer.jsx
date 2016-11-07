@@ -16,15 +16,17 @@ const ResultsContainer = React.createClass({
   componentDidMount(){
     let query = this.props.location.query;
     console.log(query)
+    console.log(`${query.q}`)
 
-
-
-    seatGeekHelper.getCityInfo(['?venue.city=new+york','?venue.city=brooklyn'])
+    seatGeekHelper.getCityInfo(['?q=' + query.q +'&venue.city=new+york', '?q=' + query.q + '&venue.city=brooklyn'])
       .then((cities) => {
         console.log('CITIES', cities)
+        this.setState({
+          isLoading: false,
+          results: [cities[0], cities[1]]
+        })
 
     })
-    console.log('COMPDIDMOUNT')
   },
   render(){
     return(

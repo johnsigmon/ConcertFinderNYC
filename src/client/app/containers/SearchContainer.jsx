@@ -25,8 +25,7 @@ console.log('HANDLE SUBMIT')
       this.context.router.push({
         pathname: '/results',
         query: {
-          q: currentSearch,
-         'venue.city': "new york"
+          q: currentSearch
 
         }
       })
