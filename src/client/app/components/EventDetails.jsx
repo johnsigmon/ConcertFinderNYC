@@ -33,7 +33,7 @@ function EventDetails (props) {
               <Col xs={6} >
 
               </Col>
-              <Col xs={6} >
+              <Col xs={6} style= {{"paddingRight" : "0"}} >
                 <div className="info">
                 <p className="cash">Avg. Ticket : <strong>${event.stats.average_price}</strong></p>
                 <p className="cash">Lowest Ticket : <strong>${event.stats.lowest_price}</strong></p>

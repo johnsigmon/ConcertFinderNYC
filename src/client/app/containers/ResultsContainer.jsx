@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import Results from '../components/Results.jsx';
 import seatGeekHelper from '../utils/seatGeekHelper.js';
-
+import { Link } from 'react-router';
 
 const ResultsContainer = React.createClass({
   contextTypes: {
@@ -29,12 +29,28 @@ const ResultsContainer = React.createClass({
     })
   },
   render(){
+    let searchLinkStyle = {
+"backgroundColor" : "#3A4660",
+"paddingTop" : "15px",
+"marginBottom" : "15px"
+    }
+       let buttonStyle = {
+"paddingTop" : "15px",
+"marginBottom" : "15px"
+    }
     return(
+      <div className="text-center">
+      <div style={searchLinkStyle}>
+        <Link to='/search'>
+          <button type="button" className="btn btn-lg btn-success" style={buttonStyle}>Search Again</button>
+        </Link>
+        </div>
       <Results
         isLoading={this.state.isLoading}
         results={this.state.results} />
+      </div>
       )
   }
 })
 
-module.exports = ResultsContainer;
+export default ResultsContainer;

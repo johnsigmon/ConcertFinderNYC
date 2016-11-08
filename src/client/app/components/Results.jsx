@@ -8,11 +8,18 @@ function puke(obj) {
 }
 
 function Results (props) {
+  let resultsContainerStyle = {
+    "backgroundColor" : "#C9AF98",
+    "color": "#3A4660",
+    "paddingTop" : "15px",
+    "marginBottom" : "15px"
+    }
+
 
   return props.isLoading === true
         ? <p>LOADING</p>
-        : <div className="jumbotron col-sm-12">
-          <h1>What's coming up!</h1>
+        : <div className="jumbotron col-sm-12" style={resultsContainerStyle}>
+          <h2>What's coming up!</h2>
           <Grid>
             <EventDetailsWrapper header="NYC">
               <EventDetails events={props.results[0].events} />

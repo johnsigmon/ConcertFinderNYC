@@ -1,13 +1,14 @@
 import React from 'react';
-const ReactRouter = require('react-router');
-const Link = ReactRouter.Link;
+import { Link } from 'react-router';
 
 const Home = React.createClass({
     render(){
+      let homeSearchStyle= {
+        "backgroundColor" : "#3A4660"
+
+      }
         return (
-          <div className='jumbotron col-sm-12 text-center'>
-            <h1>Show Finder NYC</h1>
-            <p className="lead">Some fancy motto</p>
+          <div className='jumbotron col-sm-12 text-center' style={homeSearchStyle} >
             <Link to='/search'>
               <button type="button" className="btn btn-lg btn-success">Search</button>
             </Link>

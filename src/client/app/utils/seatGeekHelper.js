@@ -1,12 +1,10 @@
 import axios from 'axios';
 
-const id = "MY KEY";
+const id = 'MY KEY';
 const param = "&client_id=" + id;
 
-/*const cities = ['?venue.city=new+york','?venue.city=brooklyn']*/
-
 function getCityInfo (search){
-  return axios.get('https://api.seatgeek.com/2/events'+ search + param +'&per_page=10')
+  return axios.get('https://api.seatgeek.com/2/events'+ search + param +'&per_page=100')
 }
 
 const helpers = {

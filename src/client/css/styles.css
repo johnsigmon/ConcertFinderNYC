@@ -1,27 +1,21 @@
-.jumbotron a {
-
-
-}
 html {
-  background-color: #F2FBE0;
-  color: #F3F6FF;
+  background-color: #3A4660;
+  color: #3A4660;
 }
 .results {
 float: right;
 }
-
 .manhattan {
   background-color: #F3F6FF;
 }
 .card-head {
-  background-color: #605B56;
-  border-radius: 15px;
-  color: #F2FBE0;
+  background-color: #3A4660;
+  color: #C9AF98;
 }
 .info {
   float: right;
-  background-color: #605B56;
-  color: #F2FBE0;
+  background-color: #3A4660;;
+  color: #C9AF98;
 }
 .brooklyn {
   background-color: #DAFEB7;
@@ -34,7 +28,6 @@ float: right;
 
 .returns {
   background-color: #F0CB9F;
-  border-radius: 15px;
   margin-bottom: 10px;
 }
 
