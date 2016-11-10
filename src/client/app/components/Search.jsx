@@ -9,6 +9,11 @@ function Search(props) {
     "marginTop" : "20px",
     "borderRadius" : "20px"
   }
+   let searchButton = {
+    "backgroundColor" : "#3A4660",
+    "color": "#C9AF98",
+    "borderRadius" : "10px"
+  }
 
       return (
       <div className="jumbotron col-sm-12 text-center" style={searchBoxStyle}>
@@ -25,8 +30,9 @@ function Search(props) {
             </div>
             <div className="form-group col-sm-4 col-sm-offset-4">
               <button
-                className="btn btn-block btn-success"
-                type="submit">
+                className="btn btn-block"
+                type="submit"
+                style={searchButton}>
                 Search
               </button>
             </div>

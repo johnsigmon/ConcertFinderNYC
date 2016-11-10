@@ -2,18 +2,21 @@ import React, { PropTypes } from 'react';
 import { Grid, Col, ButtonToolbar, DropdownButton, MenuItem } from 'react-bootstrap';
 function ChooseVenue (props) {
 
-  let calStyle = {
+  let buttonStyle = {
     "backgroundColor" : "#C9AF98",
     "color": "#3A4660",
-    "marginTop" : "20px",
-    "borderRadius" : "20px"
+    "borderRadius" : "10px",
+    "height": "200px",
+    "width": "100%",
+    "fontWeight" : "bolder",
+    "fontSize" : "40px"
   }
   return (
       <Grid>
-        <Col xs={2} className="text-center" style={calStyle} >
-          <h3>Pick A City</h3>
-            <ButtonToolbar>
-              <DropdownButton bsStyle="default" title="Choose A City" noCaret id="dropdown-no-caret" onSelect={props.onSelectCity}>
+
+          <Col xs={4} xsOffset={4}>
+            <ButtonToolbar className="text-center">
+              <DropdownButton bsStyle="default" title="Choose A City" noCaret id="dropdown-no-caret" style={buttonStyle} onSelect={props.onSelectCity}>
                 <MenuItem eventKey="New York">New York</MenuItem>
                 <MenuItem eventKey="Brooklyn">Brooklyn</MenuItem>
                 <MenuItem eventKey="Boston">Boston</MenuItem>
@@ -23,6 +26,7 @@ function ChooseVenue (props) {
               </DropdownButton>
             </ButtonToolbar>
         </Col>
+
       </Grid>
     )
 }

@@ -34,9 +34,10 @@ const ResultsContainer = React.createClass({
 "marginBottom" : "15px"
     }
        let buttonStyle = {
-"paddingTop" : "15px",
-"marginBottom" : "15px"
-    }
+    "backgroundColor" : "#C9AF98",
+    "color": "#3A4660",
+    "borderRadius" : "10px"
+  }
     return(
       <div className="text-center">
       <div style={searchLinkStyle}>

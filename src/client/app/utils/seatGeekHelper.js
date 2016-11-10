@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const id = 'MyKEY';
+const id = 'MyKey';
 const param = "&client_id=" + id;
 
 function getCityInfo (search){

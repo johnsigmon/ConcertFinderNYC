@@ -6,7 +6,7 @@ function VenueDetails (props) {
   <section>
 
     {props.venues.map((venue,i) => {
-
+      if(venue.stats.event_count) {
       return (
         <div key={i} className="venues" >
           <Grid>
@@ -17,16 +17,17 @@ function VenueDetails (props) {
             </Row>
             <Row>
 
-              <Col xs={3}>
+              <Col xs={12}>
+                <p className="lead">Number of Upcoming Events: {venue.stats.event_count}</p>
                 <p className="lead">{venue.address}</p>
                 <p className="lead">{venue.extended_address}</p>
-                <p className="lead">{venue.url}</p>
+                <p className="lead"><a href={venue.url} target="_blank">View Upcoming Events</a></p>
               </Col>
 
             </Row>
           </Grid>
         </div>
-      )
+      )}
     })}
 
 </section>
