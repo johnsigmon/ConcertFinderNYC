@@ -1,5 +1,9 @@
 import React, { PropTypes } from 'react';
-import Search from '../components/Search.jsx'
+import Search from '../components/Search.jsx';
+import DatePicker from 'react-datepicker';
+import moment from 'moment';
+
+require('react-datepicker/dist/react-datepicker.css');
 
 const SearchContainer = React.createClass({
   contextTypes: {
@@ -7,7 +11,8 @@ const SearchContainer = React.createClass({
   },
   getInitialState(){
     return {
-      currentSearch : ''
+      currentSearch : '',
+      startDate: moment()
     }
   },
   handleSubmitSearch(e) {
@@ -37,13 +42,24 @@ console.log('HANDLE SUBMIT')
       currentSearch: e.target.value
     })
   },
+  handleCalendarChange(date) {
+    this.setState({
+      startDate: date
+    })
+  },
   render(){
     return(
+      <div>
       <Search
         onSubmitSearch={this.handleSubmitSearch}
         onUpdateSearch={this.handleUpdateSearch}
         currentSearch={this.state.currentSearch}
         />
+      <DatePicker
+        selected={this.state.startDate}
+        onChange={this.handleCalendarChange}
+      />
+      </div>
     )
   }
 });
