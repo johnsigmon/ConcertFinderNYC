@@ -1,10 +1,13 @@
 import axios from 'axios';
 
-const id = 'NjA2OTc1M3wxNDc3Njc5MDA4';
+const id = 'MYKEY';
 const param = "&client_id=" + id;
 
 function getCityInfo (search){
   return axios.get('https://api.seatgeek.com/2/events'+ search + param +'&per_page=100')
+}
+function getPerformerInfo (id) {
+  return axios.get('https://api.seatgeek.com/2/performers'+ id + param)
 }
 
 const helpers = {
@@ -16,7 +19,7 @@ const helpers = {
         return city.data
       })
     })
-    .catch((err)=> {console.warn('Error in getPlayersInfo: ', err)})
+    .catch((err)=> {console.warn('Error in getCityInfo: ', err)})
   }
 }
 

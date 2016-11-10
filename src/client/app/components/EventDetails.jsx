@@ -27,7 +27,6 @@ function EventDetails (props) {
           "overflow": "hidden",
           "textOverflow": "ellipsis"
         }
-       console.log(month);
 
       return (
         <div key={i} className="returns" style={backgroundDivStyle} >
