@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import EventDetails from './EventDetails.jsx'
-import EventDetailsWrapper from './EventDetailsWrapper.jsx'
-import { Grid, Col, Row, Image } from 'react-bootstrap'
+import EventDetailsWrapper from './EventDetailsWrapper.jsx';
+import { Grid, Col, Row, Image } from 'react-bootstrap';
 
 function puke(obj) {
   return <pre>{JSON.stringify(obj, null, ' ')}</pre>

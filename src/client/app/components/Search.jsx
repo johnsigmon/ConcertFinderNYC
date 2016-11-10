@@ -11,10 +11,11 @@ function Search(props) {
   }
 
       return (
-      <div className="jumbotron col-sm-10 col-sm-offset-1 text-center" style={searchBoxStyle}>
+      <div className="jumbotron col-sm-12 text-center" style={searchBoxStyle}>
         <div className="col-sm-12">
           <form onSubmit={props.onSubmitSearch}>
             <div className="form-group">
+            <h3>General Search</h3>
               <input
                 onChange={props.onUpdateSearch}
                 value={props.currentSearch}

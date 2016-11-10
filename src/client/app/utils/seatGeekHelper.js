@@ -1,13 +1,13 @@
 import axios from 'axios';
 
-const id = 'MYKEY';
+const id = 'MyKEY';
 const param = "&client_id=" + id;
 
 function getCityInfo (search){
   return axios.get('https://api.seatgeek.com/2/events'+ search + param +'&per_page=100')
 }
-function getPerformerInfo (id) {
-  return axios.get('https://api.seatgeek.com/2/performers'+ id + param)
+function getCityVenues (city) {
+  return axios.get('https://api.seatgeek.com/2/venues'+ city + param)
 }
 
 const helpers = {
@@ -20,6 +20,16 @@ const helpers = {
       })
     })
     .catch((err)=> {console.warn('Error in getCityInfo: ', err)})
+  },
+  getCityVenues(city) {
+    return getCityVenues (city)
+    .then((venues)=> {
+      return venues.data.venues
+    /*  return venues.venuesmap((venue)=> {
+        return venue.data
+      })*/
+    })
+    .catch((err)=> {console.warn('Error in getCityVenues: ', err)})
   }
 }
 

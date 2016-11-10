@@ -12,6 +12,9 @@ const Home = React.createClass({
             <Link to='/search'>
               <button type="button" className="btn btn-lg btn-success">Search</button>
             </Link>
+            <Link to='/venues'>
+              <button type="button" className="btn btn-lg btn-success">Venues</button>
+            </Link>
           </div>
         )
     }

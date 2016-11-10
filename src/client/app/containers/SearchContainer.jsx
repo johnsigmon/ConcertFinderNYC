@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import { Grid, Col, Row } from 'react-bootstrap'
+import { Grid, Col, Row, DropdownButton, MenuItem, ButtonToolbar } from 'react-bootstrap'
 import Search from '../components/Search.jsx';
 import DatePicker from 'react-datepicker';
 import moment from 'moment';
@@ -18,7 +18,8 @@ const SearchContainer = React.createClass({
   getInitialState(){
     return {
       currentSearch : '',
-      currentDate: moment()
+      currentDate: moment(),
+      currentCity: ''
     }
   },
   handleSubmitSearch(e) {
@@ -31,16 +32,14 @@ const SearchContainer = React.createClass({
 
     this.setState({
       currentSearch: ''
+    });
+    this.context.router.push({
+      pathname: '/results',
+      query: {
+        q: currentSearch,
+        datetime_utc: formattedDate
+      }
     })
-console.log('HANDLE SUBMIT')
-
-      this.context.router.push({
-        pathname: '/results',
-        query: {
-          q: currentSearch,
-          datetime_utc: formattedDate
-        }
-      })
 
       console.log(this.context.router)
   },
@@ -59,13 +58,13 @@ console.log('HANDLE SUBMIT')
       <div>
       <Grid>
         <Col xs={8}>
-        <Search
-          onSubmitSearch={this.handleSubmitSearch}
-          onUpdateSearch={this.handleUpdateSearch}
-          currentSearch={this.state.currentSearch}
-          />
+          <Search
+            onSubmitSearch={this.handleSubmitSearch}
+            onUpdateSearch={this.handleUpdateSearch}
+            currentSearch={this.state.currentSearch}
+            />
         </Col>
-        <Col xs={4} className="text-center" style={calStyle}>
+        <Col xs={2} className="text-center" style={calStyle}>
           <h2>Choose a date.</h2>
           <DatePicker
             selected={this.state.currentDate}
